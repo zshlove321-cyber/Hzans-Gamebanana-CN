@@ -58,12 +58,6 @@ python -m venv .venv
 
 离线测试使用伪造的 API 返回和明确标注的测试密钥，不需要实际服务密钥。完整 EXE 离线健康检查与隐私扫描见 `tools/verify_public_release.py`。
 
-## 发布到 GitHub
-
-这个源码目录就是仓库根目录。只上传此目录的内容；EXE ZIP 与 SHA256SUMS.txt 放到版本标签 `v0.1.2` 的 Releases 附件，不把发布 EXE 和日常配置加入 Git 仓库。提交前检查暂存区，避免上传运行后产生的个人文件。
-
-仓库已准备 README、MIT LICENSE、CHANGELOG、贡献说明、安全与隐私说明，以及 Windows 构建工作流。工作流只构建并保存 artifact，不自动创建公开 Release。
-
 ## 许可与数据
 
 自有源码采用 [MIT](LICENSE)。第三方许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。用户数据位置与分享注意事项见 [PRIVACY.md](PRIVACY.md)。
