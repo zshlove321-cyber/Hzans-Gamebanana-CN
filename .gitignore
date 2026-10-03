@@ -1,0 +1,44 @@
+# Personal settings, credentials, browser state and cache
+.banana-index/
+.webengine-data/
+webprofile/
+chromium/
+settings.json
+settings.broken.json
+session-cookies.json
+api-cache.json
+cookies.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+Cookies
+Cookies-journal
+Local State
+Login Data*
+logs/
+*.log
+*.dmp
+crash-*.txt
+# Build/runtime/generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.exe
+*.zip
+*.rar
+*.7z
+.pytest_cache/
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini

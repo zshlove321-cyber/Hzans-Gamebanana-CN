@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "_comment": "一键汉化跳过规则（browser 注入脚本与 Python 侧共用同一份，保证行为一致）。修改此文件会改变翻译范围，属于受控变更。",
+  "skip_tags": [
+    "script", "style", "noscript", "template", "code", "pre", "kbd", "samp", "var", "tt",
+    "svg", "math", "canvas", "iframe", "object", "embed", "textarea", "input", "select", "option",
+    "meta", "link", "base"
+  ],
+  "skip_tags_note": "skip_tags 内的元素整棵子树都不翻译，参数顺序/转义/标记约束因此不会被破坏；head 与 title 不在此列，因为页面标题属于可见界面文本",
+  "skip_attributes": ["translate", "data-notranslate", "data-no-translate"],
+  "skip_attribute_values": ["no", "notranslate", "no-translate"],
+  "skip_class_substrings": [
+    "notranslate", "no-translate", "code", "highlight", "hljs", "prettyprint", "linenums",
+    "monaco", "CodeMirror", "ace_editor", "prism", "syntax", "hljs-ln", "bbcode-code",
+    "codeblock", "code-block", "filename", "file-name", "breadcrumb", "username", "user-name",
+    "timestamp", "timeago", "signature"
+  ],
+  "skip_role": ["code", "textbox", "searchbox", "combobox", "listbox"],
+  "keep_patterns": [
+    "^https?://\\S+$",
+    "^[\\w.+-]+@[\\w-]+\\.[\\w.]+$",
+    "^[A-Za-z]:\\\\[\\S ]*$",
+    "^\\{\\{.*\\}\\}$",
+    "^%[sd%]$",
+    "^\\$\\{[^}]+\\}$",
+    "^<[^>]+>$"
+  ],
+  "keep_patterns_note": "整段文本完全匹配时跳过：URL、邮箱、Windows 路径、模板/占位符、纯标签",
+  "min_length": 2,
+  "inline_tags": ["a", "b", "strong", "i", "em", "u", "s", "span", "small", "sub", "sup", "mark", "abbr", "time"],
+  "inline_tags_note": "内联元素的文本并入同一翻译单元，避免拆句导致语序错乱；块级元素各自成单元",
+  "block_tags": [
+    "div", "p", "li", "td", "th", "h1", "h2", "h3", "h4", "h5", "h6", "section", "article",
+    "header", "footer", "aside", "nav", "main", "figcaption", "caption", "dt", "dd", "blockquote",
+    "label", "button", "summary", "legend", "title"
+  ],
+  "code_like_heuristics": [
+    "^[A-Za-z_][A-Za-z0-9_]*_[A-Za-z0-9_]+$",
+    "^[A-Za-z_][A-Za-z0-9_]*\\([^)]*\\)$",
+    "^[A-Za-z0-9_]+(\\.[A-Za-z0-9_]+)+$"
+  ],
+  "code_like_heuristics_note": "含下划线的标识符、函数调用、点分路径视为代码术语并保留原文；普通单词（Battle/Skyrim）与短语不在其中，仍会翻译",
+  "max_unit_chars": 1200
+}

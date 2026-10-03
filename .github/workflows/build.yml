@@ -1,0 +1,29 @@
+name: Windows build
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          architecture: x64
+      - name: Install build dependencies
+        run: python -m pip install -r requirements-build.txt
+      - name: Build
+        run: python -m PyInstaller --noconfirm --clean packaging/GameBananaIndex.spec
+      - name: Include notices
+        shell: pwsh
+        run: |
+          Copy-Item LICENSE,THIRD_PARTY_NOTICES.md dist/
+          Copy-Item licenses dist/licenses -Recurse
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GameBananaIndex-windows-x64
+          path: dist/
